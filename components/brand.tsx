@@ -1,25 +1,18 @@
-import Image from "next/image"
-
 import { cn } from "@/lib/utils"
 
-/** The CareerMatch AI "CM" logo mark. */
+/**
+ * The CM monogram from `public/brand/logo-mark.png`, drawn as a mask so it
+ * takes the current text color and follows light/dark theme.
+ */
 export function BrandMark({ className }: { className?: string }) {
   return (
     <span
+      aria-hidden
       className={cn(
-        "inline-flex size-5 shrink-0 items-center justify-center overflow-hidden rounded-sm",
+        "inline-block size-6 shrink-0 bg-current [mask:url(/brand/logo-mark.png)_center/contain_no-repeat]",
         className
       )}
-    >
-      <Image
-        src="/brand/Gemini_Generated_Image_qbgcx1qbgcx1qbgc.png"
-        alt=""
-        width={40}
-        height={40}
-        className="size-full object-cover"
-        priority
-      />
-    </span>
+    />
   )
 }
 
